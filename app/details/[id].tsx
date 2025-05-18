@@ -11,7 +11,7 @@ export default function DetailScreen() {
   const { data: cryptoListData } = useGetBySymbolCryptoQuery(id as string);
   return (
     <ThemedView>
-      <ThemedText>{id}</ThemedText>
+      {/* <ThemedText>{id}</ThemedText> */}
       <LineChart
         data={{
           labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
