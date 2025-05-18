@@ -1,12 +1,14 @@
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useGetBySymbolCryptoQuery } from '@/services';
 import { useLocalSearchParams } from 'expo-router';
 import { Dimensions } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
 
 export default function DetailScreen() {
   const { id } = useLocalSearchParams();
+  const { data: cryptoListData } = useGetBySymbolCryptoQuery(id as string);
   return (
     <ThemedView>
       {/* <ThemedText>{id}</ThemedText> */}

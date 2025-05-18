@@ -1,12 +1,12 @@
 
+import CardComponent from '@/components/StockCard';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { companiesList } from '@/constants/StockList';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
 import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import CardComponent from '@/components/StockCard';
-import { companiesList } from '@/constants/StockList';
 
 export default function HomeScreen() {
   const { push } = useRouter();
