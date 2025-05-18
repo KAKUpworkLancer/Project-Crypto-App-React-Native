@@ -53,7 +53,7 @@ export const useGetBySymbolCryptoQuery = (symbol: string) => {
           symbol: symbol,
           interval: '60min',
           outputsize: 'compact',
-          apikey: process.env.ALPHA_VANTAGE_API_KEY,
+          apikey: process.env.EXPO_PUBLIC_ALPHA_VANTAGE_API_KEY,
         },
       })
       return data;
