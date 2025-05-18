@@ -8,7 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const { push } = useRouter();
-  const { data } = useGetAllCryptoQuery();
+  const { data: cryptoListData } = useGetAllCryptoQuery();
   const renderItem = ({ item }: any) => (
     <TouchableOpacity
       style={styles.menuItem}
@@ -19,14 +19,16 @@ export default function HomeScreen() {
       </ThemedText>
     </TouchableOpacity>
   );
+  /*
   const cryptoList = [{ symbol: 'BTC', name: 'Bitcoin' }, { symbol: 'ETH', name: 'Ethereum' }, { symbol: 'SOL', name: 'Solana' }, { symbol: 'BNB', name: 'BNB' }, { symbol: 'XRP', name: 'Ripple' }]
+  */
   return (
     <ThemedView>
       <SafeAreaView>
         <FlatList
-          style={{ height: '100%'}}
-          data={cryptoList}
-          keyExtractor={(item) => item.symbol}
+          style={{ height: '100%' }}
+          data={cryptoListData?.data || []}
+          keyExtractor={(item) => item?.symbol}
           renderItem={renderItem}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
         />
