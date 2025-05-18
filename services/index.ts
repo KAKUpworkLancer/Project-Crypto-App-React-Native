@@ -5,10 +5,8 @@ export const useGetAllCryptoQuery = () => {
   return useQuery({
     queryKey: ['crypto'],
     queryFn: () => {
-      const data = axios.get(`https://api.binance.com/api/v3/klines`, {
+      const data = axios.get(`https://api.binance.com/api/v3/exchangeInfo`, {
         params: {
-          symbol: 'BTCUSDT',
-          interval: '1h',
         },
       })
       return data;
