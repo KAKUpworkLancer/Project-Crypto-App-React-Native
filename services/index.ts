@@ -38,6 +38,8 @@ export const useGetAllCryptoQuery = () => {
 export const useGetBySymbolCryptoQuery = (symbol: string) => {
   return useQuery({
     queryKey: ['crypto', symbol],
+    refetchInterval: 10000,
+    refetchOnWindowFocus: true,
     queryFn: () => {
       /*
       const data = axios.get(`https://api.binance.com/api/v3/klines/${symbol}`, {
