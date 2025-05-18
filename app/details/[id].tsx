@@ -9,7 +9,7 @@ export default function DetailScreen() {
   const { id } = useLocalSearchParams();
   return (
     <ThemedView>
-      <ThemedText>{id}</ThemedText>
+      {/* <ThemedText>{id}</ThemedText> */}
       <LineChart
         data={{
           labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
