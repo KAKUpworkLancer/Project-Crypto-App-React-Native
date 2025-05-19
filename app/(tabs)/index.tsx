@@ -2,14 +2,21 @@
 import CardComponent from '@/components/StockCard';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { companiesList } from '@/constants/StockList';
+import { useGetAllCryptoQuery } from '@/services';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { useRouter } from 'expo-router';
+import React from 'react';
 import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   const { push } = useRouter();
+  const [tableData, setTableData] = React.useState<any>([]);
+  const { data } = useGetAllCryptoQuery();
+
+  React.useEffect(() => {
+      setTableData(data?.data);
+    }, [data]);
 
   const renderItem = ({ item }: any) => {
     const percentageChange = ((item.value / 100) * 5).toFixed(2); // Example calculation for percentage
@@ -57,7 +64,7 @@ export default function HomeScreen() {
 
         <FlatList
           style={{ height: '100%' }}
-          data={companiesList}
+          data={tableData}
           keyExtractor={(item) => item.symbol}
           renderItem={renderItem}
           ItemSeparatorComponent={() => <View style={styles.separator} />}
