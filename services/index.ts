@@ -40,7 +40,7 @@ export const useGetBySymbolCryptoQuery = (symbol: string) => {
     queryKey: ['crypto', symbol],
     refetchInterval: 10000,
     refetchOnWindowFocus: true,
-    queryFn: () => {
+    queryFn: async () => {
       /*
       const data = axios.get(`https://api.binance.com/api/v3/klines/${symbol}`, {
         params: {
@@ -49,7 +49,7 @@ export const useGetBySymbolCryptoQuery = (symbol: string) => {
         },
       })
       */
-      const data = axios.get(`https://www.alphavantage.co/query`, {
+      const data = await axios.get(`https://www.alphavantage.co/query`, {
         params: {
           function: 'TIME_SERIES_INTRADAY',
           symbol: symbol,
