@@ -1,5 +1,6 @@
 import { ThemedView } from '@/components/ThemedView';
 import { useGetBySymbolCryptoQuery } from '@/services';
+import dayjs from 'dayjs';
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
 import { Dimensions } from 'react-native';
@@ -16,11 +17,12 @@ export default function DetailScreen() {
     /* First Data */
     const firstData: any = { data: [], strokeWidth: 2 }
     topTenData.forEach(([timestamp, data]: [string, any]) => {
-      labels.push(timestamp);
+      labels.push(dayjs(timestamp).format("HH:mm"));
       firstData.data.push(data["1. open"]);
     });
+    firstData.data = firstData.data.reverse();
     datasets.push(firstData);
-    setChartData({ labels: labels, datasets: datasets });
+    setChartData({ labels: labels.reverse(), datasets: datasets });
   }, [cryptoListData]);
   return (
     <ThemedView>
@@ -30,7 +32,7 @@ export default function DetailScreen() {
           labels: chartData?.labels || [],
           datasets: chartData?.datasets || [],
         }}
-        height={Dimensions.get("window").height}
+        height={Dimensions.get("window").height / 3}
         width={Dimensions.get("window").width}
         chartConfig={{
           color: (opacity = 1) => `rgba(0, 123, 255, ${opacity})`,
