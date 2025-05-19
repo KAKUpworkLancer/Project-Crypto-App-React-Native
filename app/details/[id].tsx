@@ -41,9 +41,9 @@ export default function DetailScreen() {
           height={Dimensions.get("window").height / 3}
           width={Dimensions.get("window").width}
           chartConfig={{
-            backgroundColor: 'transparent',
-            backgroundGradientFrom: 'transparent',
-            backgroundGradientTo: 'transparent',
+            backgroundColor: 'black',
+            backgroundGradientFrom: 'black',
+            backgroundGradientTo: 'black',
             color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
           }}
         />

@@ -10,13 +10,13 @@ import { FlatList, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
-  const { push } = useRouter();
+  const { push, replace } = useRouter();
   const [tableData, setTableData] = React.useState<any>([]);
   const { data } = useGetAllCryptoQuery();
 
   React.useEffect(() => {
-      setTableData(data?.data);
-    }, [data]);
+    setTableData(data?.data);
+  }, [data]);
 
   const renderItem = ({ item }: any) => {
     const percentageChange = ((item.value / 100) * 5).toFixed(2); // Example calculation for percentage
@@ -24,7 +24,7 @@ export default function HomeScreen() {
     return (
       <TouchableOpacity
         style={styles.menuItem}
-        onPress={() => push(`/details/${item.symbol}`)}
+        onPress={() => replace(`/market?id=${item.symbol}`)}
       >
         {/* Row 1: Company Symbol and Price */}
         <View style={{ textAlign: 'left' }}>

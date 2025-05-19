@@ -26,7 +26,7 @@ export default function TabLayout() {
         }),
         headerShown: true,
         headerTitleAlign: route.name === 'index' ? 'left' : 'center',
-        headerTitle: route.name === 'index' ? 'StockPedia' : 'Company Details',
+        headerTitle: route.name === 'index' ? 'Transtock' : 'Company Details',
         headerStyle: {
           backgroundColor: '#3171F0',
           borderBottomWidth: 2,
