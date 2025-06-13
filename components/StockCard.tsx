@@ -16,19 +16,19 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 16,
         borderRadius: 10,
-        backgroundColor: '#007bff', // Light Blue background
+        backgroundColor: '#007bff',
         marginHorizontal: 8,
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 4,
-        elevation: 3, // Shadow effect for Android
+        elevation: 3, 
     },
     title: {
         fontSize: 16,
         fontWeight: 'bold',
-        color: '#fff', // White text
+        color: '#fff',
     },
     value: {
         fontSize: 14,

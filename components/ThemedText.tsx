@@ -57,12 +57,4 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#0a7ea4',
   },
-  // greenStockText: {
-  //   fontSize: 14,
-  //   color: 'green'
-  // },
-  // redStockText: {
-  //   fontSize: 14,
-  //   color: 'red'
-  // }
 });

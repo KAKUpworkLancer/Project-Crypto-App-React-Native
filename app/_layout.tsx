@@ -20,11 +20,9 @@ export default function RootLayout() {
   const pathname = usePathname();
 
   if (!loaded) {
-    // Async font loading only occurs in development.
     return null;
   }
 
-  // Check if we are in the details/[id] route
   const isDetailsScreen = pathname.startsWith('/details/');
 
   return (
@@ -37,11 +35,11 @@ export default function RootLayout() {
             name="details/[id]"
             options={{
               headerTitle: 'Chart',
-              headerTitleAlign: 'center', // Center aligns the title
+              headerTitleAlign: 'center', 
               headerStyle: {
                 backgroundColor: '#3171F0',
                 borderBottomWidth: 2,
-                borderBottomColor: '#007bff', // Slightly darker blue separator
+                borderBottomColor: '#007bff',
               },
               headerTitleStyle: {
                 fontSize: 22,
@@ -49,7 +47,7 @@ export default function RootLayout() {
                 color: '#fff',
                 fontFamily: 'MontSerrat',
               },
-              headerTintColor: '#fff', // Changes back button & icons color
+              headerTintColor: '#fff', 
               headerRight: () => (
                 <TouchableOpacity onPress={() => console.log('Navigation icon pressed')} style={{ marginRight: 16 }}>
                   <Ionicons name="menu" size={24} color="white" />

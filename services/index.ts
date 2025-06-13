@@ -4,12 +4,6 @@ export const useGetAllCryptoQuery = () => {
   return useQuery({
     queryKey: ['crypto'],
     queryFn: () => {
-      /*
-      const data = axios.get(`https://api.binance.com/api/v3/exchangeInfo`, {
-        params: {
-        },
-      })
-      */
       const data = {
         data: [
           { symbol: 'MSFT', name: 'Microsoft Corporation', value: 312.45, color: 'green' },
@@ -40,23 +34,6 @@ export const useGetBySymbolCryptoQuery = (symbol: string) => {
     refetchInterval: 10000,
     refetchOnWindowFocus: true,
     queryFn: async () => {
-      /*
-      const data = axios.get(`https://api.binance.com/api/v3/klines/${symbol}`, {
-        params: {
-          symbol: 'BTCUSDT',
-          interval: '1h',
-        },
-      })
-      const data = await axios.get(`https://www.alphavantage.co/query`, {
-        params: {
-          function: 'TIME_SERIES_INTRADAY',
-          symbol: symbol,
-          interval: '60min',
-          outputsize: 'compact',
-          apikey: process.env.EXPO_PUBLIC_ALPHA_VANTAGE_API_KEY,
-        },
-      })
-      */
       const allData: any = {
         MSFT: {
           'Meta Data': {
